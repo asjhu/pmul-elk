@@ -6,7 +6,7 @@
 ```sh
 su -
 ```
-##### 2)Add a new YUM repository (RPM)
+##### 2) Add a new YUM repository (RPM)
 ```sh
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 cat - > /etc/yum.repos.d/elasticsearch.repo <<-_END_
@@ -24,8 +24,7 @@ _END_
 ```sh
 sudo yum install --enablerepo=elasticsearch elasticsearch --nogpgcheck -y
 ```
-##### 4) Copy elastic user password from screen output. This gets generated on install.
-##### Continue with Kibana install
+##### 4) Copy elastic user password from screen output. This gets generated on install. Then continue with Kibana
 ```sh
 yum -y install --enablerepo=elasticsearch kibana --nogpgcheck -y
 systemctl daemon-reload
@@ -40,7 +39,6 @@ firewall-cmd --reload
 ```
 
 #### Install & Configure Elasticsearch (Ubuntu - deb)
-##### The following commands will configure the elastic repo and install/start Elasticsearch
 ```sh
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
 sudo apt-get install apt-transport-https
@@ -65,10 +63,11 @@ network.host: (IP address of your host)
 ```sh
 systemctl start elasticsearch
 ```
-##### 8) Configure Kibana for remote access. Use vi to edit /etc/kibana/kibana.yml. Uncomment and update the server.host with your ELK server IP address.  For example, server.host: "192.168.0.80"
+##### 8) Configure Kibana. Use vi to edit /etc/kibana/kibana.yml. Uncomment and update the server.host with your ELK server IP address.  For example, server.host: "192.168.0.80"
 ```sh
 vi /etc/kibana/kibana.yml
 server.host: "192.168.0.80"
+:wq!
 ```
 ##### 9) Start Kibana
 ```sh
@@ -79,7 +78,7 @@ systemctl start kibana
 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
 ```
 ##### 11) Using web browser go to your ELK server for example, http://192.168.0.80:5601 and paste enrollment token when prompted
-##### 12) Login to Kibana using elastic user ID and password
+##### 12) Login to Kibana using elastic user ID and password saved in step 4
 ##### 13) Note: you may be asked to run /usr/share/kibana/bin/kibana-verification-code from the CLI and enter into the Kibana webUI.
 ```sh
 /usr/share/kibana/bin/kibana-verification-code
