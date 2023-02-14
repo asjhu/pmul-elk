@@ -67,7 +67,7 @@ systemctl start elasticsearch
 ```sh
 vi /etc/kibana/kibana.yml
 server.host: "192.168.0.80"
-:wq!
+:wq! #save and exit
 ```
 ##### 9) Start Kibana
 ```sh
@@ -117,6 +117,7 @@ elkcafile       /etc/elkcerts/http_ca.crt
 elkcertfile     /etc/elkcerts/instance/instance.crt
 elkkeyfile      /etc/elkcerts/instance/instance.key
 elkdatatypes    eventlog iolog
+:wq! #save and exit
 ```
 ##### 20) Configure PMUL logservers to use ELK
 ```sh
