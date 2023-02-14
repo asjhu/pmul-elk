@@ -1,5 +1,5 @@
 ### ELK for BeyondTust PMUL (ELK ver. 8.6.1 as of 2/4/23)
-##### https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html  Instructions below come from this URL with additional steps specific to PMUL
+##### Instructions below come from this URL with additional steps specific to PMUL https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html
 #### Install & Configure Elasticsearch (RHEL/Centos - rpm) Ubuntu - see "Install & Configure Elasticsearch (Ubuntu - deb)"
 
 ##### 1) su - to root
